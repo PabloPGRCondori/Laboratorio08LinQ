@@ -1,0 +1,74 @@
+# Compilación y dependencias
+bin/
+obj/
+out/
+*.exe
+*.dll
+*.log
+*.cache
+*.pdb
+
+# Archivos temporales de Rider / JetBrains
+.idea/
+*.sln.iml
+*.userprefs
+*.user
+*.suo
+
+# Archivos de Rider
+*.DotSettings.user
+.idea/.idea.*
+.idea/.name
+.idea/workspace.xml
+.idea/httpRequests/
+
+# Configuración de usuario de Visual Studio / Rider
+.vs/
+.vscode/
+*.userosscache
+*.user
+*.swp
+
+# Configuración de paquetes NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+.nuget/
+
+# Archivos de configuración de EF Core
+Migrations/
+
+# Archivos de entorno y secretos
+.env
+.env.*
+*.db
+*.sqlite
+appsettings.Development.json
+appsettings.Local.json
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs y dumps
+*.log
+*.dmp
+*.bak
+
+# Archivos generados por cobertura de código
+coverage/
+*.coverage
+*.coveragexml
+
+# Publicaciones y despliegue
+publish/
+wwwroot/
+*.Publish.xml
+
+# Archivos de respaldo o temporales
+*~
+*.tmp
+*.temp
