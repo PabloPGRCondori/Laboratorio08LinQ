@@ -1,8 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -13,6 +17,17 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+//Configuracion de postgress
+builder.Services.AddDbContext<DbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection"))
+);
+
+// Configurar el pipeline HTTP
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 app.UseHttpsRedirection();
 app.UseRouting();
 
