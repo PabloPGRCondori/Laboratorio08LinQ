@@ -17,15 +17,17 @@ namespace Laboratorio08.Controllers
         }
 
         // Ejercicio 1: Clientes con nombre específico
-        [HttpGet("clientes/nombre")]
-        public IActionResult GetClientesPorNombre([FromQuery] string nombre)
+        [HttpGet("clientes/nombre")] 
+        public IActionResult GetClientesPorNombre([FromQuery] string? nombre = null)
         {
-            var clientes = _context.Clients
-                .Where(c => EF.Functions.ILike(c.Name, $"{nombre}%"))
-                .ToList();
+            var query = _context.Clients.AsQueryable();
 
-            return Ok(clientes);
+            if (!string.IsNullOrEmpty(nombre))
+                query = query.Where(c => EF.Functions.ILike(c.Name, $"{nombre}%"));
+
+            return Ok(query.ToList());
         }
+
 
         // Ejercicio 2: Productos con precio mayor
         [HttpGet("productos/precio-mayor")]
