@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Laboratorio08.Data.Entities;
+namespace Laboratorio08.Models;
 
 public partial class Order
 {
